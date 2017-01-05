@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+<extension
+	point="org.eclipse.ui.navigator.navigatorContent">
+<!--@CincoGen PROJECT_WIZARD_CABO_NAV -->		
+<commonWizard
+	menuGroupId="mgl"
+	type="new"
+	wizardId="info.scce.cinco.product.cabo.wizard.caboproject">
+	<enablement></enablement>
+</commonWizard>
+</extension>
+<extension point="org.eclipse.ui.perspectives">
+<!--@CincoGen CABO-->
+	<perspective class="info.scce.cinco.product.cabo.CaboPerspective" fixed="false" id="info.scce.cinco.product.cabo.caboperspective" name="Cabo Perspective">
+	</perspective>
+</extension><extension point="de.jabc.cinco.meta.core.referenceregistry">
+	<!--@CincoGen KabelPlan-->
+		<FileExtensionsRegistry class="info.scce.cinco.product.cabo.graphiti.KabelPlanFileExtensions">
+		</FileExtensionsRegistry>
+	</extension><extension point="org.eclipse.ui.navigator.navigatorContent">
+	<!--@CincoGen KabelPlan-->
+		<commonWizard menuGroupId="mgl" type="new" wizardId="info.scce.cinco.product.cabo.wizard.kabelplan">
+			<enablement/>
+		</commonWizard>
+	</extension><extension point="org.eclipse.ui.popupMenus">
+	<!--@CincoGen KabelPlan-->
+		<objectContribution adaptable="false" id="info.scce.cinco.product.cabo.KabelPlanObjectContributor" nameFilter="*kabelplan" objectClass="org.eclipse.core.resources.IResource">
+			<action class="info.scce.cinco.product.cabo.graphiti.CreateKabelPlanDiagram" id="info.scce.cinco.product.cabo.CreateKabelPlanDiagramAction" label="Create KabelPlan Diagram">
+			</action>
+		</objectContribution>
+	</extension><extension point="org.eclipse.core.contenttype.contentTypes">
+	<!--@CincoGen KabelPlan-->
+		<content-type file-extensions="kabelplan" id="info.scce.cinco.product.cabo.KabelPlanContentType" name="KabelPlan Content Type" priority="normal">
+		</content-type>
+	</extension><extension point="org.eclipse.ui.editors">
+	<!--@CincoGen KabelPlan-->
+		<editor class="info.scce.cinco.product.cabo.graphiti.KabelPlanDiagramEditor" contributorClass="org.eclipse.graphiti.ui.editor.DiagramEditorActionBarContributor" default="false" id="info.scce.cinco.product.cabo.KabelPlanEditor" matchingStrategy="org.eclipse.graphiti.ui.editor.DiagramEditorMatchingStrategy" name="KabelPlan Editor">
+			<contentTypeBinding contentTypeId="info.scce.cinco.product.cabo.KabelPlanContentType">
+			</contentTypeBinding>
+			<contentTypeBinding contentTypeId="org.eclipse.graphiti.content.diagram">
+			</contentTypeBinding>
+		</editor>
+	</extension><extension point="org.eclipse.ui.newWizards">
+	<!--@CincoGen KabelPlan-->
+		<wizard category="de.jabc.cinco.meta.core.wizards.category.cinco" class="info.scce.cinco.product.cabo.graphiti.wizard.NewKabelPlanDiagramWizard" id="info.scce.cinco.product.cabo.wizard.kabelplan" name="New KabelPlan">
+		</wizard>
+	</extension><extension point="org.eclipse.graphiti.ui.imageProviders">
+	<!--@CincoGen KabelPlan-->
+		<imageProvider class="info.scce.cinco.product.cabo.graphiti.KabelPlanImageProvider" id="info.scce.cinco.product.cabo.KabelPlanImageProvider">
+		</imageProvider>
+	</extension><extension point="org.eclipse.graphiti.ui.diagramTypeProviders">
+	<!--@CincoGen KabelPlan-->
+		<diagramTypeProvider class="info.scce.cinco.product.cabo.graphiti.KabelPlanDiagramTypeProvider" description="This is the generated editor for the KabelPlan" id="info.scce.cinco.product.cabo.KabelPlanDiagramTypeProvider" name="KabelPlan Diagram Editor">
+			<diagramType id="info.scce.cinco.product.cabo.KabelPlanDiagramType">
+			</diagramType>
+			<imageProvider id="info.scce.cinco.product.cabo.KabelPlanImageProvider">
+			</imageProvider>
+		</diagramTypeProvider>
+	</extension><extension point="org.eclipse.graphiti.ui.diagramTypes">
+	<!--@CincoGen KabelPlan-->
+		<diagramType description="This is the generated diagram Type for KabelPlan" id="info.scce.cinco.product.cabo.KabelPlanDiagramType" name="KabelPlan Graphiti Diagram Type" type="KabelPlan">
+		</diagramType>
+	</extension><extension point="org.eclipse.ui.navigator.navigatorContent">
+<!--@CincoGen PROJECT_WIZARD_WIRINGPLANTOOL_NAV -->		
+<commonWizard menuGroupId="mgl" type="new" wizardId="info.scce.cinco.product.cabo.wizard.wiringplantoolproject">
+	<enablement/>
+</commonWizard>
+</extension><extension point="org.eclipse.ui.perspectives">
+<!--@CincoGen WIRINGPLANTOOL-->
+	<perspective class="info.scce.cinco.product.cabo.WiringPlanToolPerspective" fixed="false" id="info.scce.cinco.product.cabo.wiringplantoolperspective" name="WiringPlanTool Perspective">
+	</perspective>
+</extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated CKabelPlan -->
+      <package class="info.scce.cinco.product.cabo.api.ckabelplan.CkabelplanPackage" genModel="src-gen/model/CKabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/ckabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.ui.newWizards">
+<!--@CincoGen PROJECT_WIZARD_WIRINGPLANTOOL_WIZ -->
+<wizard category="de.jabc.cinco.meta.core.wizards.category.cinco" class="info.scce.cinco.product.cabo.WiringPlanToolProjectWizard" id="info.scce.cinco.product.cabo.wizard.wiringplantoolproject" name="New WiringPlanTool Project">
+</wizard>
+</extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.ui.newWizards">
+<!--@CincoGen PROJECT_WIZARD_CABO_WIZ -->
+<wizard category="de.jabc.cinco.meta.core.wizards.category.cinco" class="info.scce.cinco.product.cabo.CaboProjectWizard" id="info.scce.cinco.product.cabo.wizard.caboproject" name="New Cabo Project">
+</wizard>
+</extension></plugin>

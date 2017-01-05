@@ -1,0 +1,114 @@
+@style("model/KabelPlan.style")
+@primeviewer
+graphModel KabelPlan {
+	package info.scce.cinco.product.cabo
+	nsURI "http://cinco.scce.info/product/cabo/kabelplan"
+	diagramExtension "kabelplan"
+	
+	containableElements (Feld, BP_REG, Leitung)
+	
+	@style(reg, "${reg.label}")
+	@postCreate("info.scce.cinco.product.cabo.hooks.PrimeRefREGHook")
+	@postMove("info.scce.cinco.product.cabo.hooks.REGPostMove")
+	container REG {
+		@pvLabel(short_descr)
+		@pvFileExtension("plan")
+		prime this::BP_REG as reg	
+		containableElements (Port)
+	}
+	
+	abstract container BP_REG { 
+		attr EString as label := ""
+		attr EString as description
+		attr EString as short_descr
+		containableElements (Port)
+	}
+
+	@style(reg1, "${label}")
+	@disable(resize)
+	container BP_REG1 extends BP_REG {}
+	
+	@style(reg2, "${label}")
+	@disable(resize)
+	container BP_REG2 extends BP_REG {}
+
+	@style(reg3, "${label}")
+	@disable(resize)
+	container BP_REG3 extends BP_REG {}
+
+	@style(reg4, "${label}")
+	@disable(resize)
+	container BP_REG4 extends BP_REG {}
+
+	@style(reg8, "${label}")
+	@disable(resize)
+	container BP_REG8 extends BP_REG {}
+
+	@style(reg12, "${label}")
+	@disable(resize)
+	container BP_REG12 extends BP_REG {}
+	
+	@style(reihenklemme, "${label}")
+	@disable(resize)
+	container BP_REIHENKLEMME extends BP_REG {}
+
+	@style(minireihenklemme, "${label}")
+	@disable(resize)
+	container BP_MINIREIHENKLEMME extends BP_REG {}
+	
+	
+	@style(feld)
+	container Feld {
+		containableElements (REG)
+	}
+	
+	@style(kabelGrau)
+	edge Grau {	}
+	@style(kabelSchwarz)
+	edge Schwarz {	}
+	@style(kabelBraun)
+	edge Braun {}
+	@style(kabelBlau)
+	edge Blau {}
+	@style(kabelErde)
+	edge Erde {}
+	
+	@style(nymLeitung)
+	edge NYM5Kabel {}	
+	
+	abstract node Leitung {}
+	
+	@style(nym, "5")
+	node NYM5 extends Leitung {
+		incomingEdges ( Blau, Schwarz, Erde, Braun, Grau, NYM5Kabel[0,1])
+		outgoingEdges ( Blau, Schwarz, Erde, Braun, Grau, NYM5Kabel[0,1])
+	}
+	 
+	@style(nym, "3")
+	node NYM3 extends Leitung {
+		incomingEdges ( Blau, Schwarz, Erde)
+		outgoingEdges ( Blau, Schwarz, Erde)	
+	}
+	
+	abstract node Port { }
+	
+	@style(phasePort)
+	node PhasePort extends Port {
+		outgoingEdges (Braun, Schwarz, Grau)
+		incomingEdges (Braun, Schwarz, Grau)
+	}
+	
+	@style(erdePort)
+	node ErdePort extends Port {
+		outgoingEdges (Erde)
+		incomingEdges (Erde)
+	}
+	
+	@style(neutralPort)
+	node NeutralPort extends Port {
+		outgoingEdges (Blau)
+		incomingEdges (Blau)
+	}
+	
+}
+

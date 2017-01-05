@@ -1,0 +1,203 @@
+appearance default {
+	lineWidth 2
+	background (229,229,229)
+}
+
+appearance blau extends default {
+	foreground (0,124,255)
+	background (0,124,255)
+}
+appearance grau extends default {
+	foreground (161,161,161)
+	background (161,161,161)
+}
+appearance schwarz extends default {
+	foreground (0,0,0)
+	background (0,0,0)
+}
+appearance braun extends default {
+	foreground (162,110,47)
+	background (162,110,47)
+}
+appearance erde extends default {
+	foreground (175,242,37)	
+	background (175,242,37)
+}
+
+appearance reg_blueprint {
+	background (233,255,255)
+}
+
+nodeStyle reg(1) {
+ 	rectangle {		
+		size (720,100)
+		text {
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}		
+	}
+}
+
+nodeStyle reihenklemme(1) {
+ 	rectangle {		
+ 		appearance reg_blueprint
+		size (20,100)
+		text {
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}		
+	}
+}
+
+nodeStyle minireihenklemme(1) {
+ 	rectangle {		
+ 		appearance reg_blueprint
+		size (12,100)
+		text {
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}		
+	}
+}
+
+nodeStyle reg1(1) {
+ 	rectangle {		
+ 		appearance reg_blueprint
+		size (60,100)
+		text {
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}		
+	}
+}
+
+nodeStyle reg2(1) {
+ 	rectangle {		
+ 		appearance reg_blueprint
+		size (120,100)
+		text {
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}		
+	}
+}
+
+nodeStyle reg3(1) {
+ 	rectangle {		
+ 		appearance reg_blueprint
+		size (180,100)
+		text {
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}		
+	}
+}
+
+nodeStyle reg4(1) {
+ 	rectangle {		
+ 		appearance reg_blueprint
+		size (240,100)
+		text {
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}		
+	}
+}
+
+nodeStyle reg8(1) {
+ 	rectangle {		
+ 		appearance reg_blueprint
+		size (480,100)
+		text {
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}		
+	}
+}
+
+nodeStyle reg12(1) {
+ 	rectangle {		
+ 		appearance reg_blueprint
+		size (720,100)
+		text {
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}		
+	}
+}
+
+
+nodeStyle ls(1) {
+ 	rectangle {		
+		size (60,100)
+		text {
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}		
+	}
+}
+
+nodeStyle feld {
+	rectangle {
+		appearance {
+			background (214,214,214)
+		}
+		size (760,100)
+		
+	}
+}
+
+edgeStyle nymLeitung {
+	appearance extends default {
+		lineStyle DOT
+	}
+}
+
+edgeStyle kabelBlau {
+	appearance blau
+}
+edgeStyle kabelSchwarz {
+	appearance schwarz
+}
+edgeStyle kabelBraun {
+	appearance braun
+}
+edgeStyle kabelGrau {
+	appearance grau
+}
+edgeStyle kabelErde {
+	appearance erde
+}
+
+nodeStyle phasePort {
+	ellipse {
+		appearance {
+			background (0,0,0)
+		}
+		size (10,10)		
+	}
+}
+
+nodeStyle erdePort {
+	ellipse {
+		appearance erde
+		size (10,10)		
+	}
+}
+
+nodeStyle neutralPort {
+	ellipse {
+		appearance blau
+		size (10,10)
+	}
+}
+
+nodeStyle nym(1) {
+	ellipse {
+		size (16,16)
+		text { 
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}
+	}
+}
