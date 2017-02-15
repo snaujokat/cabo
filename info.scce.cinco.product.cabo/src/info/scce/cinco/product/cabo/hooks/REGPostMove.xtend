@@ -1,9 +1,9 @@
 package info.scce.cinco.product.cabo.hooks;
 
-import de.jabc.cinco.meta.core.ge.style.model.customfeature.CincoPostMoveHook
-import graphicalgraphmodel.CModelElementContainer
 import info.scce.cinco.product.cabo.api.ckabelplan.CFeld
 import info.scce.cinco.product.cabo.api.ckabelplan.CREG
+import de.jabc.cinco.meta.core.ge.style.model.customfeature.CincoPostMoveHook
+import graphicalgraphmodel.CModelElementContainer
 
 public class REGPostMove extends CincoPostMoveHook<CREG> {
 	

@@ -62,12 +62,57 @@
 	<!--@CincoGen KabelPlan-->
 		<diagramType description="This is the generated diagram Type for KabelPlan" id="info.scce.cinco.product.cabo.KabelPlanDiagramType" name="KabelPlan Graphiti Diagram Type" type="KabelPlan">
 		</diagramType>
+	</extension><extension point="de.jabc.cinco.meta.core.referenceregistry">
+	<!--@CincoGen REGKomponentenBibliothek-->
+		<FileExtensionsRegistry class="info.scce.cinco.product.cabo.regs.graphiti.REGKomponentenBibliothekFileExtensions">
+		</FileExtensionsRegistry>
 	</extension><extension point="org.eclipse.ui.navigator.navigatorContent">
-<!--@CincoGen PROJECT_WIZARD_WIRINGPLANTOOL_NAV -->		
-<commonWizard menuGroupId="mgl" type="new" wizardId="info.scce.cinco.product.cabo.wizard.wiringplantoolproject">
-	<enablement/>
-</commonWizard>
-</extension><extension point="org.eclipse.ui.perspectives">
+	<!--@CincoGen REGKomponentenBibliothek-->
+		<commonWizard menuGroupId="mgl" type="new" wizardId="info.scce.cinco.product.cabo.regs.wizard.regkomponentenbibliothek">
+			<enablement/>
+		</commonWizard>
+	</extension><extension point="org.eclipse.ui.popupMenus">
+	<!--@CincoGen REGKomponentenBibliothek-->
+		<objectContribution adaptable="false" id="info.scce.cinco.product.cabo.regs.REGKomponentenBibliothekObjectContributor" nameFilter="*regs" objectClass="org.eclipse.core.resources.IResource">
+			<action class="info.scce.cinco.product.cabo.regs.graphiti.CreateREGKomponentenBibliothekDiagram" id="info.scce.cinco.product.cabo.regs.CreateREGKomponentenBibliothekDiagramAction" label="Create REGKomponentenBibliothek Diagram">
+			</action>
+		</objectContribution>
+	</extension><extension point="org.eclipse.core.contenttype.contentTypes">
+	<!--@CincoGen REGKomponentenBibliothek-->
+		<content-type file-extensions="regs" id="info.scce.cinco.product.cabo.regs.REGKomponentenBibliothekContentType" name="REGKomponentenBibliothek Content Type" priority="normal">
+		</content-type>
+	</extension><extension point="org.eclipse.ui.editors">
+	<!--@CincoGen REGKomponentenBibliothek-->
+		<editor class="info.scce.cinco.product.cabo.regs.graphiti.REGKomponentenBibliothekDiagramEditor" contributorClass="org.eclipse.graphiti.ui.editor.DiagramEditorActionBarContributor" default="false" id="info.scce.cinco.product.cabo.regs.REGKomponentenBibliothekEditor" matchingStrategy="org.eclipse.graphiti.ui.editor.DiagramEditorMatchingStrategy" name="REGKomponentenBibliothek Editor">
+			<contentTypeBinding contentTypeId="info.scce.cinco.product.cabo.regs.REGKomponentenBibliothekContentType">
+			</contentTypeBinding>
+			<contentTypeBinding contentTypeId="org.eclipse.graphiti.content.diagram">
+			</contentTypeBinding>
+		</editor>
+	</extension><extension point="org.eclipse.ui.newWizards">
+	<!--@CincoGen REGKomponentenBibliothek-->
+		<wizard category="de.jabc.cinco.meta.core.wizards.category.cinco" class="info.scce.cinco.product.cabo.regs.graphiti.wizard.NewREGKomponentenBibliothekDiagramWizard" id="info.scce.cinco.product.cabo.regs.wizard.regkomponentenbibliothek" name="New REGKomponentenBibliothek">
+		</wizard>
+	</extension><extension point="org.eclipse.graphiti.ui.imageProviders">
+	<!--@CincoGen REGKomponentenBibliothek-->
+		<imageProvider class="info.scce.cinco.product.cabo.regs.graphiti.REGKomponentenBibliothekImageProvider" id="info.scce.cinco.product.cabo.regs.REGKomponentenBibliothekImageProvider">
+		</imageProvider>
+	</extension><extension point="org.eclipse.graphiti.ui.diagramTypeProviders">
+	<!--@CincoGen REGKomponentenBibliothek-->
+		<diagramTypeProvider class="info.scce.cinco.product.cabo.regs.graphiti.REGKomponentenBibliothekDiagramTypeProvider" description="This is the generated editor for the REGKomponentenBibliothek" id="info.scce.cinco.product.cabo.regs.REGKomponentenBibliothekDiagramTypeProvider" name="REGKomponentenBibliothek Diagram Editor">
+			<diagramType id="info.scce.cinco.product.cabo.regs.REGKomponentenBibliothekDiagramType">
+			</diagramType>
+			<imageProvider id="info.scce.cinco.product.cabo.regs.REGKomponentenBibliothekImageProvider">
+			</imageProvider>
+		</diagramTypeProvider>
+	</extension><extension point="org.eclipse.graphiti.ui.diagramTypes">
+	<!--@CincoGen REGKomponentenBibliothek-->
+		<diagramType description="This is the generated diagram Type for REGKomponentenBibliothek" id="info.scce.cinco.product.cabo.regs.REGKomponentenBibliothekDiagramType" name="REGKomponentenBibliothek Graphiti Diagram Type" type="REGKomponentenBibliothek">
+		</diagramType>
+	</extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated CREGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.api.cregkomponentenbibliothek.CregkomponentenbibliothekPackage" genModel="src-gen/model/CREGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/cregs"/>
+   </extension><extension point="org.eclipse.ui.perspectives">
 <!--@CincoGen WIRINGPLANTOOL-->
 	<perspective class="info.scce.cinco.product.cabo.WiringPlanToolPerspective" fixed="false" id="info.scce.cinco.product.cabo.wiringplantoolperspective" name="WiringPlanTool Perspective">
 	</perspective>
@@ -135,6 +180,105 @@
    </extension><extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated KabelPlan -->
       <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
    </extension><extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated KabelPlan -->
       <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>

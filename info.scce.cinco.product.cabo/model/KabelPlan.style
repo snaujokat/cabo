@@ -1,3 +1,11 @@
+appearance lineLabelSmall {
+	font ("Monospace",BOLD,9)
+}
+appearance lineLabel {
+	font ("Monospace",BOLD,11)
+}
+
+
 appearance default {
 	lineWidth 2
 	background (229,229,229)
@@ -22,6 +30,11 @@ appearance braun extends default {
 appearance erde extends default {
 	foreground (175,242,37)	
 	background (175,242,37)
+}
+
+appearance kabelNummer extends default {
+	foreground (57,57,57)
+	background (57,57,57)
 }
 
 appearance reg_blueprint {
@@ -147,9 +160,44 @@ nodeStyle feld {
 	}
 }
 
-edgeStyle nymLeitung {
+nodeStyle schrank {
+	rectangle {
+		appearance {
+			background (214,243,255)
+		}
+		size (780,200)
+		
+	}
+}
+
+nodeStyle wanddurchbruch(1) {
+	rectangle {
+		appearance {
+			background (61,61,61)
+		}
+		size (200,100)
+		text { 
+			appearance {
+				foreground (255,255,255)
+			}
+			position (CENTER, TOP)
+			value "%s"
+		}
+		
+	}
+}
+
+
+edgeStyle nymLeitung(1) {
 	appearance extends default {
 		lineStyle DOT
+	}
+	decorator {	
+		text {	
+		  appearance lineLabel	  
+		  value "%s" 
+		}
+		location (0)		
 	}
 }
 
@@ -167,6 +215,16 @@ edgeStyle kabelGrau {
 }
 edgeStyle kabelErde {
 	appearance erde
+}
+edgeStyle kabelNummer(1) {
+	appearance kabelNummer
+	decorator {
+		text {
+			appearance lineLabel
+			value "%s"
+		}
+		location (0.5)
+	}
 }
 
 nodeStyle phasePort {

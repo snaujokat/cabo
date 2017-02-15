@@ -1,3 +1,4 @@
 cincoProduct Cabo {
 	mgl "model/KabelPlan.mgl"
+	mgl "model/REGKomponentenBibliothek.mgl"
 }		

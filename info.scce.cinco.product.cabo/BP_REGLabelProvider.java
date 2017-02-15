@@ -1,4 +1,4 @@
-package info.scce.cinco.product.cabo.primeviewer.kabelplan;
+package info.scce.cinco.product.cabo.primeviewer.regs;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;

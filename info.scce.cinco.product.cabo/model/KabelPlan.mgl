@@ -1,3 +1,5 @@
+import "platform:/resource/info.scce.cinco.product.cabo/model/REGKomponentenBibliothek.mgl" as regs
+
 @style("model/KabelPlan.style")
 @primeviewer
 graphModel KabelPlan {
@@ -5,15 +7,18 @@ graphModel KabelPlan {
 	nsURI "http://cinco.scce.info/product/cabo/kabelplan"
 	diagramExtension "kabelplan"
 	
-	containableElements (Feld, BP_REG, Leitung)
+	containableElements (Schrank, Wanddurchbruch)
 	
 	@style(reg, "${reg.label}")
 	@postCreate("info.scce.cinco.product.cabo.hooks.PrimeRefREGHook")
 	@postMove("info.scce.cinco.product.cabo.hooks.REGPostMove")
 	container REG {
 		@pvLabel(short_descr)
-		@pvFileExtension("plan")
-		prime this::BP_REG as reg	
+		@pvFileExtension("regs")
+		prime regs::BP_REG as reg
+		primeattr short_descr as short
+		@multiLine
+		attr EString as dokumentation	
 		containableElements (Port)
 	}
 	
@@ -25,37 +30,47 @@ graphModel KabelPlan {
 	}
 
 	@style(reg1, "${label}")
-	@disable(resize)
+	@disable(create,resize)
 	container BP_REG1 extends BP_REG {}
 	
 	@style(reg2, "${label}")
-	@disable(resize)
+	@disable(create,resize)
 	container BP_REG2 extends BP_REG {}
 
 	@style(reg3, "${label}")
-	@disable(resize)
+	@disable(create,resize)
 	container BP_REG3 extends BP_REG {}
 
 	@style(reg4, "${label}")
-	@disable(resize)
+	@disable(create,resize)
 	container BP_REG4 extends BP_REG {}
 
 	@style(reg8, "${label}")
-	@disable(resize)
+	@disable(create,resize)
 	container BP_REG8 extends BP_REG {}
 
 	@style(reg12, "${label}")
-	@disable(resize)
+	@disable(create,resize)
 	container BP_REG12 extends BP_REG {}
 	
 	@style(reihenklemme, "${label}")
-	@disable(resize)
+	@disable(create,resize)
 	container BP_REIHENKLEMME extends BP_REG {}
 
 	@style(minireihenklemme, "${label}")
-	@disable(resize)
+	@disable(create,resize)
 	container BP_MINIREIHENKLEMME extends BP_REG {}
 	
+	@style(wanddurchbruch, "${label}")
+	container Wanddurchbruch {
+		containableElements (Leitung)
+		attr EString as label
+	}
+	
+	@style(schrank)
+	container Schrank {
+		containableElements (Feld, Leitung)
+	}
 	
 	@style(feld)
 	container Feld {
@@ -73,40 +88,118 @@ graphModel KabelPlan {
 	@style(kabelErde)
 	edge Erde {}
 	
-	@style(nymLeitung)
-	edge NYM5Kabel {}	
+	@style(kabelNummer, "1")
+	edge Kabel1 {}
+	@style(kabelNummer, "2")
+	edge Kabel2 {}
+	@style(kabelNummer, "3")
+	edge Kabel3 {}
+	@style(kabelNummer, "4")
+	edge Kabel4 {}
+	@style(kabelNummer, "5")
+	edge Kabel5 {}
+	@style(kabelNummer, "6")
+	edge Kabel6 {}
+	@style(kabelNummer, "7")
+	edge Kabel7 {}
+	@style(kabelNummer, "8")
+	edge Kabel8 {}
+	@style(kabelNummer, "9")
+	edge Kabel9 {}
+	@style(kabelNummer, "10")
+	edge Kabel10 {}
+	@style(kabelNummer, "11")
+	edge Kabel11 {}
+
+	@style(nymLeitung, "${sourceElement.kuerzel}")
+	edge NYM3Kabel { 
+		attr EString as label
+		attr EString as querschnitt
+		@multiLine
+		attr EString as documentation
+	}	
 	
-	abstract node Leitung {}
+	@style(nymLeitung, "${sourceElement.kuerzel}")
+	edge NYM5Kabel { 
+		attr EString as label
+		attr EString as querschnitt
+		@multiLine
+		attr EString as documentation
+	}	
+
+	@style(nymLeitung, "${sourceElement.kuerzel}")
+	edge NYM7Kabel { 
+		attr EString as label
+		attr EString as querschnitt
+		@multiLine
+		attr EString as documentation
+	}	
+
+	@style(nymLeitung, "${sourceElement.kuerzel}")
+	edge NYM12Kabel { 
+		attr EString as label
+		attr EString as querschnitt
+		@multiLine
+		attr EString as documentation
+	}	
 	
-	@style(nym, "5")
+	abstract node Leitung {
+		attr EString as kuerzel		
+	}
+	
+	@style(nym, "${adern}")
+	node NYM3 extends Leitung {
+		@readOnly
+		attr EString as adern := "3"
+		incomingEdges ( Blau[1,1], Schwarz[1,1], Erde[1,1])
+		outgoingEdges ( Blau[1,1], Schwarz[1,1], Erde[1,1])	
+	}
+
+	@style(nym, "${adern}")
 	node NYM5 extends Leitung {
-		incomingEdges ( Blau, Schwarz, Erde, Braun, Grau, NYM5Kabel[0,1])
-		outgoingEdges ( Blau, Schwarz, Erde, Braun, Grau, NYM5Kabel[0,1])
+		@readOnly
+		attr EString as adern := "5"
+		incomingEdges ( Blau[1,1], Schwarz[1,1], Erde[1,1], Braun[1,1], Grau[1,1], NYM5Kabel[0,1])
+		outgoingEdges ( NYM5Kabel[0,1])
+	}
+
+	@style(nym, "${adern}")
+	node NYM7 extends Leitung {
+		@readOnly
+		attr EString as adern := "7"
+		incomingEdges (Kabel1[1,1], Kabel2[1,1], Kabel3[1,1], Kabel4[1,1], Kabel5[1,1], Kabel6[1,1], Erde[1,1], NYM7Kabel[0,1])
+		outgoingEdges ( NYM7Kabel[0,1])
+	}
+
+	@style(nym, "${adern}")
+	node NYM12 extends Leitung {
+		@readOnly
+		attr EString as adern := "12"
+		incomingEdges (Kabel1[1,1], Kabel2[1,1], Kabel3[1,1], Kabel4[1,1], Kabel5[1,1], Kabel6[1,1], Kabel7[1,1], Kabel8[1,1], Kabel9[1,1], Kabel10[1,1], Kabel11[1,1], Erde[1,1], NYM12Kabel[0,1])
+		outgoingEdges ( NYM12Kabel[0,1])
 	}
 	 
-	@style(nym, "3")
-	node NYM3 extends Leitung {
-		incomingEdges ( Blau, Schwarz, Erde)
-		outgoingEdges ( Blau, Schwarz, Erde)	
-	}
 	
 	abstract node Port { }
 	
 	@style(phasePort)
+	@disable(resize,move,delete,create)
 	node PhasePort extends Port {
-		outgoingEdges (Braun, Schwarz, Grau)
+		outgoingEdges (Braun, Schwarz, Grau, Kabel2, Kabel3, Kabel4, Kabel5, Kabel6, Kabel7, Kabel8, Kabel9, Kabel10, Kabel11)
 		incomingEdges (Braun, Schwarz, Grau)
 	}
 	
 	@style(erdePort)
+	@disable(resize,move,delete,create)
 	node ErdePort extends Port {
 		outgoingEdges (Erde)
 		incomingEdges (Erde)
 	}
 	
 	@style(neutralPort)
+	@disable(resize,move,delete,create)
 	node NeutralPort extends Port {
-		outgoingEdges (Blau)
+		outgoingEdges (Blau, Kabel1)
 		incomingEdges (Blau)
 	}
 	
