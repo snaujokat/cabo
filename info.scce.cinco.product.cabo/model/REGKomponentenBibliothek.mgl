@@ -12,6 +12,13 @@ graphModel REGKomponentenBibliothek {
 		attr EString as short_descr
 		containableElements (Port)
 	}
+	
+	@style(reg0, "${label}")
+	@disable(resize)
+	@postAttributeValueChange("info.scce.cinco.product.cabo.hooks.REGResize")
+	container BP_FREI extends BP_REG {
+		attr EInt as breite := "180"
+	}
 
 	@style(reg1, "${label}")
 	@disable(resize)

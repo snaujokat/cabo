@@ -73,6 +73,17 @@ nodeStyle minireihenklemme(1) {
 	}
 }
 
+nodeStyle reg0(1) {
+ 	rectangle {		
+ 		appearance reg_blueprint
+		size (60,100)
+		text {
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}		
+	}
+}
+
 nodeStyle reg1(1) {
  	rectangle {		
  		appearance reg_blueprint
