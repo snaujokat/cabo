@@ -7,7 +7,7 @@ graphModel KabelPlan {
 	nsURI "http://cinco.scce.info/product/cabo/kabelplan"
 	diagramExtension "kabelplan"
 	
-	containableElements (Schrank, Wanddurchbruch)
+	containableElements (Schrank, Wanddurchbruch, BOutlet, LichtOutlet, Abzweigdose, OutletKombination)
 	
 	@style(reg, "${reg.label}")
 	@postCreate("info.scce.cinco.product.cabo.hooks.PrimeRefREGHook")
@@ -67,6 +67,35 @@ graphModel KabelPlan {
 		attr EString as label
 	}
 	
+	@style(abzweigdose, "${kuerzel}")
+	container Abzweigdose {
+		containableElements (Leitung)
+		attr EString as kuerzel
+	}
+
+	@style(outletkombination, "${kuerzel}")
+	container OutletKombination {
+		containableElements (Outlet)
+		attr EString as kuerzel
+	}
+
+	@style(outlet, "${kuerzel}")
+	node Outlet {
+		attr EString as kuerzel
+	}
+
+	@style(lichtoutlet, "${kuerzel}")
+	node LichtOutlet {
+		attr EString as kuerzel
+		incomingEdges (NYM3Kabel, NYM5Kabel, NYM7Kabel, NYM12Kabel)
+		outgoingEdges (NYM3Kabel, NYM5Kabel, NYM7Kabel, NYM12Kabel)
+	}
+
+	@style(boutlet, "${kuerzel}")
+	node BOutlet {
+		attr EString as kuerzel
+	}
+	
 	@style(schrank)
 	container Schrank {
 		containableElements (Feld, Leitung)
@@ -111,7 +140,7 @@ graphModel KabelPlan {
 	@style(kabelNummer, "11")
 	edge Kabel11 {}
 
-	@style(nymLeitung, "${sourceElement.kuerzel}")
+	@style(nym3Leitung)
 	edge NYM3Kabel { 
 		attr EString as label
 		attr EString as querschnitt
@@ -119,7 +148,7 @@ graphModel KabelPlan {
 		attr EString as documentation
 	}	
 	
-	@style(nymLeitung, "${sourceElement.kuerzel}")
+	@style(nym5Leitung)
 	edge NYM5Kabel { 
 		attr EString as label
 		attr EString as querschnitt
@@ -127,7 +156,7 @@ graphModel KabelPlan {
 		attr EString as documentation
 	}	
 
-	@style(nymLeitung, "${sourceElement.kuerzel}")
+	@style(nym7Leitung)
 	edge NYM7Kabel { 
 		attr EString as label
 		attr EString as querschnitt
@@ -135,7 +164,7 @@ graphModel KabelPlan {
 		attr EString as documentation
 	}	
 
-	@style(nymLeitung, "${sourceElement.kuerzel}")
+	@style(nymLeitung, "12")
 	edge NYM12Kabel { 
 		attr EString as label
 		attr EString as querschnitt
@@ -147,15 +176,15 @@ graphModel KabelPlan {
 		attr EString as kuerzel		
 	}
 	
-	@style(nym, "${adern}")
+	@style(nym, "${kuerzel}")
 	node NYM3 extends Leitung {
 		@readOnly
 		attr EString as adern := "3"
-		incomingEdges ( Blau[1,1], Schwarz[1,1], Erde[1,1])
-		outgoingEdges ( Blau[1,1], Schwarz[1,1], Erde[1,1])	
+		incomingEdges ( Blau[1,1], Braun[1,1], Erde[1,1], NYM3Kabel[0,1])
+		outgoingEdges ( Blau[1,1], Braun[1,1], Erde[1,1], NYM3Kabel[0,1])
 	}
 
-	@style(nym, "${adern}")
+	@style(nym5, "${kuerzel}")
 	node NYM5 extends Leitung {
 		@readOnly
 		attr EString as adern := "5"
@@ -163,7 +192,7 @@ graphModel KabelPlan {
 		outgoingEdges ( NYM5Kabel[0,1])
 	}
 
-	@style(nym, "${adern}")
+	@style(nym7, "${kuerzel}")
 	node NYM7 extends Leitung {
 		@readOnly
 		attr EString as adern := "7"
@@ -171,7 +200,7 @@ graphModel KabelPlan {
 		outgoingEdges ( NYM7Kabel[0,1])
 	}
 
-	@style(nym, "${adern}")
+	@style(nym, "${kuerzel}")
 	node NYM12 extends Leitung {
 		@readOnly
 		attr EString as adern := "12"

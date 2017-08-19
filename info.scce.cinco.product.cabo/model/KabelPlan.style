@@ -5,6 +5,11 @@ appearance lineLabel {
 	font ("Monospace",BOLD,11)
 }
 
+appearance leitungspunkt {
+	font ("Sans",10)
+	foreground (0,0,0)
+}
+
 
 appearance default {
 	lineWidth 2
@@ -198,17 +203,124 @@ nodeStyle wanddurchbruch(1) {
 	}
 }
 
+nodeStyle abzweigdose(1) {
+	rectangle {
+		appearance {
+			background (255,126,255)
+		}
+		size (200,200)
+		text { 
+			appearance leitungspunkt
+			position (CENTER, TOP)
+			value "%s"
+		}
+		
+	}
+}
+
+nodeStyle outletkombination(1) {
+	roundedRectangle {
+		appearance {
+			background (255,126,255)
+		}
+		size (200,100)
+		corner (10,10)
+		text { 
+			appearance leitungspunkt
+			position (CENTER, TOP)
+			value "%s"
+		}
+		
+	}
+}
+
+nodeStyle outlet (1) {
+	rectangle {
+		appearance {
+			background (255,126,255)
+		}
+		size (64,24)
+		text { 
+			appearance leitungspunkt
+			position (CENTER, MIDDLE)
+			value "%s"
+		}
+		
+	}
+}
+
+nodeStyle boutlet(1) {
+	ellipse {
+		appearance {
+			background (255,102,0)
+		}
+		size (64,24)
+		text { 
+			appearance leitungspunkt
+			position (CENTER, MIDDLE)
+			value "%s"
+		}
+		
+	}
+}
+
+
+nodeStyle lichtoutlet (1) {
+	ellipse {
+		appearance {
+			background (255,255,0)
+		}
+		size (64,24)
+		text { 
+			appearance leitungspunkt
+			position (CENTER, MIDDLE)
+			value "%s"
+		}
+		
+	}
+}
+
+edgeStyle nym3Leitung {
+	appearance extends default {
+		lineStyle DOT
+		lineWidth 2
+	}
+}
+
+edgeStyle nym5Leitung {
+	appearance extends default {
+		lineStyle DOT
+		lineWidth 4
+	}
+}
+
+edgeStyle nym7Leitung {
+	appearance extends default {
+		lineStyle DOT
+		lineWidth 6
+	}
+}
+
 
 edgeStyle nymLeitung(1) {
 	appearance extends default {
 		lineStyle DOT
 	}
 	decorator {	
+		movable
 		text {	
 		  appearance lineLabel	  
 		  value "%s" 
 		}
 		location (0)		
+	}
+	decorator {	
+		movable
+		text {	
+		  appearance lineLabel	  
+		  value "%s" 
+		}
+		location (1)		
 	}
 }
 
@@ -261,10 +373,39 @@ nodeStyle neutralPort {
 	}
 }
 
-nodeStyle nym(1) {
+nodeStyle nym (1) {
 	ellipse {
-		size (16,16)
+		size (64,24)
 		text { 
+			appearance leitungspunkt 
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}
+	}
+}
+
+nodeStyle nym5 (1) {
+	ellipse {
+		appearance {
+			lineWidth 2
+		}
+		size (65,25)
+		text { 
+			appearance leitungspunkt 
+			position ( CENTER, MIDDLE )
+			value "%s"
+		}
+	}
+}
+
+nodeStyle nym7 (1) {
+	ellipse {
+		appearance {
+			lineWidth 3
+		}
+		size (66,26)
+		text { 
+			appearance leitungspunkt 
 			position ( CENTER, MIDDLE )
 			value "%s"
 		}
