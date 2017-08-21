@@ -9,7 +9,7 @@ graphModel KabelPlan {
 	
 	containableElements (Schrank, Wanddurchbruch, BOutlet, LichtOutlet, Abzweigdose, OutletKombination)
 	
-	@style(reg, "${reg.label}")
+	@style(reg, "${reg.label}", "${kuerzel}")
 	@postCreate("info.scce.cinco.product.cabo.hooks.PrimeRefREGHook")
 	@postMove("info.scce.cinco.product.cabo.hooks.REGPostMove")
 	container REG {
@@ -17,6 +17,7 @@ graphModel KabelPlan {
 		@pvFileExtension("regs")
 		prime regs::BP_REG as reg
 		primeattr short_descr as short
+		attr EString as kuerzel
 		@multiLine
 		attr EString as dokumentation	
 		containableElements (Port)

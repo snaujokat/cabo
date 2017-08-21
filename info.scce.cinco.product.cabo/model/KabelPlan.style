@@ -46,13 +46,18 @@ appearance reg_blueprint {
 	background (233,255,255)
 }
 
-nodeStyle reg(1) {
+nodeStyle reg(2) {
  	rectangle {		
 		size (720,100)
 		text {
-			position ( CENTER, MIDDLE )
-			value "%s"
+			position ( CENTER, MIDDLE-8 )
+			value "%1$s"
 		}		
+		text {
+			position ( CENTER, MIDDLE 8)
+			value "%2$s"
+		}
+		
 	}
 }
 
