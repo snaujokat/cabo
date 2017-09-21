@@ -3,7 +3,7 @@ import "platform:/resource/info.scce.cinco.product.cabo/model/REGKomponentenBibl
 @style("model/KabelPlan.style")
 @primeviewer
 graphModel KabelPlan {
-	package info.scce.cinco.product.cabo
+	package info.scce.cinco.product.cabo.kabelplan
 	nsURI "http://cinco.scce.info/product/cabo/kabelplan"
 	diagramExtension "kabelplan"
 	
