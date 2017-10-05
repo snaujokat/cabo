@@ -284,6 +284,7 @@
       <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
    </extension><extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated REGKomponentenBibliothek -->
+<<<<<<< HEAD
       <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" uri="http://cinco.scce.info/product/cabo/regs"/>
    </extension><extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated REGKomponentenBibliothek -->
@@ -372,6 +373,18 @@
    </extension><extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated KabelPlan -->
       <package class="info.scce.cinco.product.cabo.kabelplan.kabelplan.views.ViewsPackage" uri="http://cinco.scce.info/product/cabo/kabelplan/views"/>
+=======
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated REGKomponentenBibliothek -->
+      <package class="info.scce.cinco.product.cabo.regs.regkomponentenbibliothek.RegkomponentenbibliothekPackage" genModel="src-gen/model/REGKomponentenBibliothek.genmodel" uri="http://cinco.scce.info/product/cabo/regs"/>
+   </extension><extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated KabelPlan -->
+      <package class="info.scce.cinco.product.cabo.kabelplan.KabelplanPackage" genModel="src-gen/model/KabelPlan.genmodel" uri="http://cinco.scce.info/product/cabo/kabelplan"/>
+>>>>>>> TP, OneWire, KNX Leitungen
    </extension><extension point="org.eclipse.ui.newWizards">
 <!--@CincoGen PROJECT_WIZARD_CABO_WIZ -->
 <wizard category="de.jabc.cinco.meta.core.wizards.category.cinco" class="info.scce.cinco.product.cabo.CaboProjectWizard" id="info.scce.cinco.product.cabo.wizard.caboproject" name="New Cabo Project">
