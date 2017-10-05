@@ -200,6 +200,15 @@ graphModel KabelPlan {
 		incomingEdges (Kabel1[1,1], Kabel2[1,1], Kabel3[1,1], Kabel4[1,1], Kabel5[1,1], Kabel6[1,1], Erde[1,1], NYM7Kabel[0,1])
 		outgoingEdges ( NYM7Kabel[0,1])
 	}
+	
+	@style(knx, "${kuerzel}")
+	node BusleitungKNX extends Leitung { }
+	@style(onewire, "${kuerzel}")
+	node BusleitungOneWire extends Leitung { }
+	@style(tp4, "${kuerzel}")
+	node TwistedPair2x2 extends Leitung { }
+	@style(tp8, "${kuerzel}")
+	node TwistedPair4x2 extends Leitung { }
 
 	@style(nym, "${kuerzel}")
 	node NYM12 extends Leitung {
