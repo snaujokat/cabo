@@ -1,4 +1,4 @@
-cincoProduct Cabo {
-	mgl "model/KabelPlan.mgl"
+cincoProduct Cabo {	
 	mgl "model/REGKomponentenBibliothek.mgl"
+	mgl "model/KabelPlan.mgl"
 }		

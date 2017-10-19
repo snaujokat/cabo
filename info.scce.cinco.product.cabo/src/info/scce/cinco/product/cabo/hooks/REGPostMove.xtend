@@ -1,15 +1,15 @@
 package info.scce.cinco.product.cabo.hooks;
 
-import info.scce.cinco.product.cabo.api.ckabelplan.CFeld
-import info.scce.cinco.product.cabo.api.ckabelplan.CREG
-import de.jabc.cinco.meta.core.ge.style.model.customfeature.CincoPostMoveHook
-import graphicalgraphmodel.CModelElementContainer
+import info.scce.cinco.product.cabo.kabelplan.kabelplan.REG
+import graphmodel.ModelElementContainer
+import de.jabc.cinco.meta.runtime.hook.CincoPostMoveHook
+import info.scce.cinco.product.cabo.kabelplan.kabelplan.Feld
 
-public class REGPostMove extends CincoPostMoveHook<CREG> {
+public class REGPostMove extends CincoPostMoveHook<REG> {
 	
-	override postMove(CREG creg, CModelElementContainer sourceContainer, CModelElementContainer targetContainer, int x, int y, int deltaX, int deltaY) {
+	override postMove(REG creg, ModelElementContainer sourceContainer, ModelElementContainer targetContainer, int x, int y, int deltaX, int deltaY) {
 		// the rightmost REG that is left of the moved REG
-		val rightmostREG = (creg.container as CFeld).CREGs.filter[it != creg].filter[it.x < x].sortBy[it.x].last 
+		val rightmostREG = (creg.container as Feld).REGs.filter[it != creg].filter[it.x < x].sortBy[it.x].last 
 		
 		// align moved REG directly next to rightmost REG
 		// this was the initial implementation that did not feel right. let's see if the new one is better...
