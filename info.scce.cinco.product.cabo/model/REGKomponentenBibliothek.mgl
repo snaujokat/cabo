@@ -15,7 +15,8 @@ graphModel REGKomponentenBibliothek {
 	
 	@style(reg0, "${label}")
 	@disable(resize)
-	@postAttributeValueChange("info.scce.cinco.product.cabo.hooks.REGResize")
+	@postAttributeChange("info.scce.cinco.product.cabo.hooks.REGResize")
+
 	container BP_FREI extends BP_REG {
 		attr EInt as breite := "180"
 	}
