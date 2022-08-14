@@ -1,68 +1,75 @@
-@style("model/KabelPlan.style")
+id info.scce.cinco.product.cabo.regs
+stylePath "model/KabelPlan.style"
+
 graphModel REGKomponentenBibliothek {
-	package info.scce.cinco.product.cabo.regs
-	nsURI "http://cinco.scce.info/product/cabo/regs"
 	diagramExtension "regs"
-	
 	containableElements (BP_REG)
+}
 	
-	abstract container BP_REG { 
-		attr EString as label := ""
-		attr EString as description
-		attr EString as short_descr
-		containableElements (Port)
-	}
-	
-	@style(reg0, "${label}")
-	@disable(resize)
-	@postAttributeChange("info.scce.cinco.product.cabo.hooks.REGResize")
-
-	container BP_FREI extends BP_REG {
-		attr EInt as breite := "180"
-	}
-
-	@style(reg1, "${label}")
-	@disable(resize)
-	container BP_REG1 extends BP_REG {}
-	
-	@style(reg2, "${label}")
-	@disable(resize)
-	container BP_REG2 extends BP_REG {}
-
-	@style(reg3, "${label}")
-	@disable(resize)
-	container BP_REG3 extends BP_REG {}
-
-	@style(reg4, "${label}")
-	@disable(resize)
-	container BP_REG4 extends BP_REG {}
-
-	@style(reg8, "${label}")
-	@disable(resize)
-	container BP_REG8 extends BP_REG {}
-
-	@style(reg12, "${label}")
-	@disable(resize)
-	container BP_REG12 extends BP_REG {}
-	
-	@style(reihenklemme, "${label}")
-	@disable(resize)
-	container BP_REIHENKLEMME extends BP_REG {}
-
-	@style(minireihenklemme, "${label}")
-	@disable(resize)
-	container BP_MINIREIHENKLEMME extends BP_REG {}
-	
-	abstract node Port { }
-	
-	@style(phasePort)
-	node PhasePort extends Port { }
-	
-	@style(erdePort)
-	node ErdePort extends Port { }
-	
-	@style(neutralPort)
-	node NeutralPort extends Port { }
-	
+abstract container BP_REG { 
+	attr EString as label := ""
+	attr EString as description
+	attr EString as short_descr
+	containableElements (Port)
 }
 
+@disable(resize)
+@postAttributeChange("info.scce.cinco.product.cabo.hooks.REGResize")
+container BP_FREI extends BP_REG {
+	style reg0("${label}")
+	attr EInt as breite := "180"
+}
+
+@disable(resize)
+container BP_REG1 extends BP_REG {
+	style reg1("${label}")
+}
+
+@disable(resize)
+container BP_REG2 extends BP_REG {
+	style reg2("${label}")
+}
+
+@disable(resize)
+container BP_REG3 extends BP_REG {
+	style reg3("${label}")
+}
+
+@disable(resize)
+container BP_REG4 extends BP_REG {
+	style reg4("${label}")
+}
+
+@disable(resize)
+container BP_REG8 extends BP_REG {
+	style reg8("${label}")
+}
+
+@disable(resize)
+container BP_REG12 extends BP_REG {
+style reg12("${label}")
+}
+
+@disable(resize)
+container BP_REIHENKLEMME extends BP_REG {
+	style reihenklemme("${label}")
+}
+
+@disable(resize)
+container BP_MINIREIHENKLEMME extends BP_REG {
+	style minireihenklemme("${label}")
+}
+
+abstract node Port { }
+
+node PhasePort extends Port {
+	style phasePort
+}
+
+node ErdePort extends Port {
+	style erdePort
+}
+
+node NeutralPort extends Port {
+	style neutralPort
+}
